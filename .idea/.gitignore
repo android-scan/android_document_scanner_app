@@ -1,0 +1,6 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Локальные настройки устройств и эмуляторов
+/deploymentTargetSelector.xml
+/deviceManager.xml
