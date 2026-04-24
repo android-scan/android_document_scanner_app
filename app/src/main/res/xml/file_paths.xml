@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Файлы документов: getFilesDir()/scans/ -->
+    <files-path name="scans" path="scans/" />
+    <!-- Временные файлы для шаринга -->
+    <cache-path name="shared_cache" path="shared/" />
+</paths>

@@ -10,15 +10,12 @@ import com.example.android_document_scanner_app.domain.model.toEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class DocumentRepository @Inject constructor(
+// Без @Inject — AppModule явно создаёт через @Provides
+class DocumentRepository(
     private val dao: DocumentDao,
     private val db: AppDatabase,
 ) {
-
     fun getAllDocuments(): Flow<List<Document>> =
         dao.getAllDocuments().map { list -> list.map { it.toDomain() } }
 
@@ -40,7 +37,7 @@ class DocumentRepository @Inject constructor(
             }
         }
 
-    // Возвращает пути к файлам страниц — вызывающий слой должен удалить их с диска
+    // Возвращает пути к файлам — вызывающий слой удаляет их с диска
     suspend fun deleteDocument(id: Long): Result<List<String>> =
         runCatching {
             val filePaths = dao.getPagesForDocument(id)
