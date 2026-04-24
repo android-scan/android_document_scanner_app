@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Сертификаты для Google Fonts провайдера (com.google.android.gms.fonts).
+    Источник: официальная документация Android — Downloadable Fonts.
+    Нужны для верификации провайдера при загрузке шрифтов.
+-->
+<resources>
+    <array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array>
+
+    <!-- Тестовый сертификат (dev-окружение) -->
+    <string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>
+            MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEGA1UEChMKR29vZ2xlIEluYzEUMBIGA1UECxMLRW5naW5lZXJpbmcxFDASBgNVBAMTC0dvb2dsZSBUZXN0MB4XDTE3MDIxMDE5MDExNloXDTI3MDIwODE5MDExNlowgZQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRMwEQYDVQQKEwpHb29nbGUgSW5jMRQwEgYDVQQLEwtFbmdpbmVlcmluZzEUMBIGA1UEAxMLR29vZ2xlIFRlc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2I34bhVW7MH3KONSq3hRxGgE+WW1O1bIWW7LFXJBfGJgC7Y5+0/hRd1TzxH6PdoSzF1EKaZ9L7I2yX1f7dIp5Q3CkqPpb8A/t5FYQH7jJ3HlbUTIbRSUlMhUGH/p5JqnL5BqvM6aIiQ6H+VzfZuv3+7H8eVsaE6XsGt6JNjXs8k5T5HOZYwQ3f0cAzQ7D7ELKqxuRzJ3T3ik2WO8eD5D1XsWV9ILf5+yH0VGGb1WGFxR8jK4MkCpHpkdJnCnA+GJ2Ld9gDYqwnKqnhEu8NHyJTR5z8zzUFkR2E/z8V8MDtaYe3l5gPv7VvwEFALPu9Bsj3x9lVKPlBo5RVRAgMBAAGjgfYwgfMwHQYDVR0OBBYEFJiLigC7YoN1wGBEZO7W+PYMaSTdMIHDBgNVHSMEgbswgbiAFJiLigC7YoN1wGBEZO7W+PYMaSTdoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEGA1UEChMKR29vZ2xlIEluYzEUMBIGA1UECxMLRW5naW5lZXJpbmcxFDASBgNVBAMTC0dvb2dsZSBUZXN0ggkA1YW4bH3TjjcwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQQFAAOCAQEAoiU7T0PMpL5Pui5Kg7GFH3k1fDqg7bNqJ+xHNJVKxM7yNL0y1DhJF/dGm7LjqPl1s9bYhP0l8MHRm+sWgHJFsZSj7GZ8GGJEf0QHblCh2tXCvZhDRhNGD3mB7DWJr7UjxpW5gkdFLf1Xl9l2o09vS9jFbBVl5U11YAB4ek1f6Y23E4lRqvfKEi/8ZopfDAKf+wm4u5fGmNJROLxUj+YtJmWUSCDGXEf7Gg/G2hMzjl/tpG6Ld3LK/JiMblK8i3QJd0Y/QBjbH4RLiKkbVlFqSrZ9OuJY4u6rEJ0GVLKO8oLbGYxQwsmP51aezAL5v0lFNS3U/TyWjC6Kg==
+        </item>
+    </string-array>
+
+    <!-- Производственный сертификат Google Play Services -->
+    <string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>
+            MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCnMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0upT9jDlGkqLNMaB1PBXnBbO4BuNQQAIVMIiHoVCKSb4fhEzGZC+yCiEUNuYPJaY0i0MV+R7XB0UBpOEFCQKiRMsFjjgcYEpG5NNt5Z1EQHS1kfCuM1+AJgd5K6GcWHZZCDUz8ZhiIVB3YIzLQM6kbIL+O7dHNz0Z3GvHH9bN/YK0X5EGMRY6O7m5hAO0Z00VvMD13LJjsMSbU3HFB4MFG+YlQKHBRGmDZOhLUDKRJdC7sXmIr0lFgQHmrlLN9gqAv3KWqZJhL5WUPJbJDuqzHcR4wv1VoGCFH8YTJnzfbx0BQIDAQAB
+        </item>
+    </string-array>
+</resources>
