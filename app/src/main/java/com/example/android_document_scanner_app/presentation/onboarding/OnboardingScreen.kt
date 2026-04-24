@@ -1,3 +1,1 @@
 package com.example.android_document_scanner_app.presentation.onboarding
-
-TODO("Not implemented")
