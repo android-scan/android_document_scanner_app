@@ -18,7 +18,12 @@ class SubscriptionManager(
         runBlocking { prefs.isPremium.first() }
 
     fun canScan(): Boolean = runBlocking {
-        resetCountIfDayChanged()
+        val today = LocalDate.now().toString()
+        val saved = prefs.lastScanDate.firstOrNull() ?: ""
+        if (saved != today) {
+            prefs.setScanCountToday(0)
+            prefs.setLastScanDate(today)
+        }
         if (prefs.isPremium.first()) return@runBlocking true
         prefs.scanCountToday.first() < FREE_SCAN_LIMIT
     }
@@ -28,17 +33,18 @@ class SubscriptionManager(
     suspend fun resetPremium() = prefs.setPremium(false)
 
     suspend fun incrementScanCount() {
-        resetCountIfDayChanged()
-        val current = prefs.scanCountToday.first()
-        prefs.setScanCountToday(current + 1)
-    }
-
-    private suspend fun resetCountIfDayChanged() {
         val today = LocalDate.now().toString() // "yyyy-MM-dd"
         val saved = prefs.lastScanDate.firstOrNull() ?: ""
-        if (saved != today) {
+        val dayChanged = saved != today
+        // При смене дня явно сбрасываем до 0 и обновляем дату,
+        // НЕ читаем значение из Flow повторно — DataStore асинхронен
+        val current = if (dayChanged) {
             prefs.setScanCountToday(0)
             prefs.setLastScanDate(today)
+            0
+        } else {
+            prefs.scanCountToday.first()
         }
+        prefs.setScanCountToday(current + 1)
     }
 }

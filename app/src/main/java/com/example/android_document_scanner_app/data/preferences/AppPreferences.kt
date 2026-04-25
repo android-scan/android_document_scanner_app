@@ -31,9 +31,9 @@ class AppPreferences(
 
     // ── Сеттеры (suspend) ─────────────────────────────────────────────────────
 
-    suspend fun setOnboardingDone(value: Boolean)     = dataStore.edit { it[Keys.IS_ONBOARDING_DONE] = value }
-    suspend fun setPremium(value: Boolean)            = dataStore.edit { it[Keys.IS_PREMIUM] = value }
-    suspend fun setScanCountToday(value: Int)         = dataStore.edit { it[Keys.SCAN_COUNT_TODAY] = value }
-    suspend fun setLastScanDate(value: String)        = dataStore.edit { it[Keys.LAST_SCAN_DATE] = value }
-    suspend fun setDefaultExportFormat(value: String) = dataStore.edit { it[Keys.DEFAULT_EXPORT_FORMAT] = value }
+    suspend fun setOnboardingDone(value: Boolean)     { dataStore.edit { it[Keys.IS_ONBOARDING_DONE] = value } }
+    suspend fun setPremium(value: Boolean)            { dataStore.edit { it[Keys.IS_PREMIUM] = value } }
+    suspend fun setScanCountToday(value: Int)         { dataStore.edit { it[Keys.SCAN_COUNT_TODAY] = value } }
+    suspend fun setLastScanDate(value: String)        { dataStore.edit { it[Keys.LAST_SCAN_DATE] = value } }
+    suspend fun setDefaultExportFormat(value: String) { dataStore.edit { it[Keys.DEFAULT_EXPORT_FORMAT] = value } }
 }

@@ -12,10 +12,13 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
 // Без @Inject — AppModule явно создаёт через @Provides
-class DocumentRepository(
+// open + protected runInTransaction — для тестирования без mockkStatic
+open class DocumentRepository(
     private val dao: DocumentDao,
     private val db: AppDatabase,
 ) {
+    protected open suspend fun <T> runInTransaction(block: suspend () -> T): T =
+        db.withTransaction(block)
     fun getAllDocuments(): Flow<List<Document>> =
         dao.getAllDocuments().map { list -> list.map { it.toDomain() } }
 
@@ -28,7 +31,7 @@ class DocumentRepository(
     // Транзакция: сначала документ, потом страницы с его ID
     suspend fun saveDocument(doc: Document, pages: List<Page>): Result<Long> =
         runCatching {
-            db.withTransaction {
+            runInTransaction {
                 val docId = dao.insertDocument(doc.toEntity())
                 pages.forEach { page ->
                     dao.insertPage(page.copy(documentId = docId).toEntity())
