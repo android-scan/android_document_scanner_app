@@ -1,6 +1,7 @@
 package com.example.android_document_scanner_app.presentation.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,7 +37,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.BlendMode
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.CompositingStrategy
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -55,6 +61,42 @@ import com.example.android_document_scanner_app.presentation.theme.SurfaceRaised
 import com.example.android_document_scanner_app.presentation.theme.TextPrimary
 import com.example.android_document_scanner_app.presentation.theme.TextSecondary
 import com.example.android_document_scanner_app.presentation.theme.TextTertiary
+
+// ── 0. PaperGrain ────────────────────────────────────────────────────────────
+// Тёплая текстура бумаги — два радиальных градиента поверх экрана.
+// Оборачивай экран в Box с compositingStrategy = Offscreen, иначе BlendMode.Multiply
+// работать не будет.
+
+@Composable
+fun PaperGrain(modifier: Modifier = Modifier) {
+    Canvas(
+        modifier = modifier
+            .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+    ) {
+        drawRect(
+            brush = Brush.radialGradient(
+                colors = listOf(
+                    Color(0xFF8B7355).copy(alpha = 0.02f),
+                    Color.Transparent,
+                ),
+                center = Offset(size.width * 0.20f, size.height * 0.30f),
+                radius = size.width * 0.40f,
+            ),
+            blendMode = BlendMode.Multiply,
+        )
+        drawRect(
+            brush = Brush.radialGradient(
+                colors = listOf(
+                    Color(0xFF8B7355).copy(alpha = 0.015f),
+                    Color.Transparent,
+                ),
+                center = Offset(size.width * 0.80f, size.height * 0.70f),
+                radius = size.width * 0.50f,
+            ),
+            blendMode = BlendMode.Multiply,
+        )
+    }
+}
 
 // ── 1. PrimaryButton ─────────────────────────────────────────────────────────
 
